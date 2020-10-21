@@ -1,22 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-  <Import Project="..\packages\NUnitTestAdapter.2.2.0\build\NUnitTestAdapter.props" Condition="Exists('..\packages\NUnitTestAdapter.2.2.0\build\NUnitTestAdapter.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{553AD4A0-946C-436D-8135-5ADBA97D246E}</ProjectGuid>
+    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IniFileParser.Tests</RootNamespace>
-    <AssemblyName>IniFileParser.Tests</AssemblyName>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -32,88 +18,32 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ReleaseVersion>
-    </ReleaseVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <ReleaseVersion></ReleaseVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Unit\Configuration\ConfigurationTests.cs" />
-    <Compile Include="Unit\Model\DefaultIniDataConfigurationTests.cs" />
-    <Compile Include="Unit\Parser\ParserDefaultConfigurationTests.cs" />
-    <Compile Include="Unit\Model\SectionDataCollectionTests.cs" />
-    <Compile Include="Unit\IniParserFile_Test.cs" />
-    <Compile Include="Unit\IniParserRegex_Test.cs" />
-    <Compile Include="Unit\IniStringParser_Test.cs" />
-    <Compile Include="Unit\Model\KeyDataTests.cs" />
-    <Compile Include="Unit\Model\SectionDataTests.cs" />
-    <Compile Include="Unit\Model\MergeIniFiles.cs" />
-    <Compile Include="Unit\Model\INIDataTests.cs" />
-    <Compile Include="Unit\Parser\ParserTests.cs" />
-    <Compile Include="Unit\Parser\FileIniDataParserTests.cs" />
-    <Compile Include="Unit\Parser\StreamIniDataParserTests.cs" />
-    <Compile Include="Unit\Parser\StringIniDataParserTests.cs" />
-    <Compile Include="Unit\Model\IniDataCaseInsensitiveTests.cs" />
-    <Compile Include="Unit\Parser\ConcatenateDuplicatedKeysIniDataParserTests.cs" />
     <Compile Include="..\IniFileParser\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Unit\Model\KeyDataCollectionTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IniFileParser\INIFileParser.csproj">
-      <Project>{5E46DCF4-C473-4171-9F9B-F3910B5EC407}</Project>
-      <Name>INIFileParser</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\IniFileParser\INIFileParser.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="INIfileBAD.ini" />
-    <None Include="INIfileBADKeys.ini" />
-    <None Include="INIfileBADSection.ini" />
-    <None Include="INIfileEMPTY.ini" />
-    <None Include="INIfileGOOD.ini" />
-    <None Include="INIFileGOOD.ini_test.ini" />
-    <None Include="Issue18_example.ini">
+    <None Update="Issue18_example.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Issue11_example.ini">
+    <None Update="Issue11_example.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
-    <None Include="aircraft.cfg">
+    <None Update="aircraft.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="aircraft2.cfg">
+    <None Update="aircraft2.cfg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="unicode_chinese.ini">
+    <None Update="unicode_chinese.ini">
       <Link>unicode_chinese.ini</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -135,20 +65,15 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-  <ItemGroup />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\NUnitTestAdapter.2.2.0\build\NUnitTestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnitTestAdapter.2.2.0\build\NUnitTestAdapter.props'))" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="2.6.3" />
+    <PackageReference Include="NUnit.Console" Version="3.10.0" />
+    <PackageReference Include="NUnit.ConsoleRunner" Version="3.10.0" />
+    <PackageReference Include="NUnit.Extension.NUnitProjectLoader" Version="3.6.0" />
+    <PackageReference Include="NUnit.Extension.NUnitV2Driver" Version="3.7.0" />
+    <PackageReference Include="NUnit.Extension.NUnitV2ResultWriter" Version="3.6.0" />
+    <PackageReference Include="NUnit.Extension.TeamCityEventListener" Version="1.0.6" />
+    <PackageReference Include="NUnit.Extension.VSProjectLoader" Version="3.8.0" />
+    <PackageReference Include="NUnitTestAdapter" Version="2.2.0" />
+  </ItemGroup>
 </Project>
